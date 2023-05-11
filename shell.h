@@ -14,7 +14,7 @@
 
 
 typedef struct info
-{
+
 char *program_name;
 char *command_name;
 char *input_line;
@@ -23,13 +23,13 @@ int exec_counter;
 char **alias_list;
 char **tokens;
 char **env;
-}
+
 data_of_program;
 typedef struct builtins
-{
+
 int (*function)(data_of_program *data);
 char *builtin;
-}
+{
 builtins;
 void handle_ctrl_c(int opr UNUSED);
 void inicialize_data(data_of_program *data, int arc, char *argv[], char **env);
@@ -65,5 +65,5 @@ int _print(char *string);
 int _printe(char *string);
 char *str_duplicate(char *string);
 int str_length(char *string);
-
+}
 #endif
