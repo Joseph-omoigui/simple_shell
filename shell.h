@@ -1,6 +1,6 @@
 #ifndef SHELL_H
 #define SHELL_H
-
+#include "shell.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
@@ -11,10 +11,7 @@
 #include <errno.h>
 #include <sys/wait.h>
 #include <sys/types.h>
-
-
 typedef struct info
-
 char *program_name;
 char *command_name;
 char *input_line;
@@ -23,10 +20,8 @@ int exec_counter;
 char **alias_list;
 char **tokens;
 char **env;
-
 data_of_program;
 typedef struct builtins
-
 int (*function)(data_of_program *data);
 char *builtin;
 {
