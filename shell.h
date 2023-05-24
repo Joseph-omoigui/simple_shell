@@ -10,6 +10,7 @@
 #include <signal.h>
 #include <errno.h>
 #include <sys/wait.h>
+#include "macros.h"
 #include <sys/types.h>
 typedef struct info
 char *program_name;
@@ -37,12 +38,16 @@ int buffer_add(char *buffer, char *str_to_add)int _getline(data_of_program *data
 char *_strtok(char *line, char *delim)int _getline(data_of_program *data);
 void tokenize(data_of_program *data)int _getline(data_of_program *data);
 int builtins_list(data_of_program *data)int _getline(data_of_program *data);
-int execute(data_of_program *data)int _getline(data_of_program *data);
-char **tokenize_path(data_of_program *data)int _getline(data_of_program *data);
-int find_program(data_of_program *data)int _getline(data_of_program *data);
+int execute(data_of_program *data);
+int _getline(data_of_program *data);
+char **tokenize_path(data_of_program *data);
+int _getline(data_of_program *data);
+int find_program(data_of_program *data)
+int _getline(data_of_program *data);
 void free_all_data(data_of_program *data)int _getline(data_of_program *data);
 void free_array_of_pointers(char **directories)int _getline(data_of_program *data);
-void free_recurrent_data(data_of_program *data)int _getline(data_of_program *data);
+void free_recurrent_data(data_of_program *data);
+int _getline(data_of_program *data);
 int set_work_directory(data_of_program *data, char *new_dir);
 int builtin_help(data_of_program *data);
 int builtin_cd(data_of_program *data);
