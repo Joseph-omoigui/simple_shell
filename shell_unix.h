@@ -12,6 +12,8 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
+
+
 /* command chain */
 #define CMD_NORM	0
 #define CMD_OR		1
@@ -28,6 +30,8 @@ extern char **environ;
 /* to convert numbers */
 #define CONVERT_LOWERCASE	1
 #define CONVERT_UNSIGNED	2
+
+
 
 /* to read and write buffers */
 #define WRITE_BUF_SIZE 1024
@@ -46,28 +50,7 @@ typedef struct liststr
 	char *str;
 	int num;
 } list_t;
-/**
- * struct passinfo - contains pseudo-arguements to pass into a function,
- * allowing uniform prototype for function pointer struct
- * @arg: a string generated from getline containing arguements
- * @argv:an array of strings generated from arg
- * @path: a string path for the current command
- * @argc: the argument count
- * @line_count: the error count
- * @err_num: the error code for exit()s
- * @linecount_flag: if on count this line of input
- * @fname: the program filename
- * @env: linked list local copy of environ
- * @environ: custom modified copy of environ from LL env
- * @history: the history node
- * @alias: the alias node
- * @env_changed: on if environ was changed
- * @status: the return status of the last exec'd command
- * @cmd_buf: address of pointer to cmd_buf, on if chaining
- * @cmd_buf_type: CMD_type ||, &&, ;
- * @readfd: the fd from which to read line input
- * @histcount: the history line number count
- */
+
 typedef struct passinfo
 {
 	char *arg;
@@ -91,9 +74,34 @@ typedef struct passinfo
 	int histcount;
 } info_t;
 
-#define INFO_INIT\
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL,\
-0, 0, 0}
+/**
+ * struct passinfo - contains arguements to pass into a function,
+ * maintaining identical prototype for function pointer struct
+ *
+ * @histcount: the history line number count
+ * @argv:an array of strings gotten from arg
+ * @path: a string path for the current command
+ * @argc: argument count
+ * @err_num: error code for exit functions
+ * @linecount_flag: count this line of input
+ * @fname: program filename
+ * @env: linked list local copy of environ
+ * @line_count: error count
+ * @environ: modified copy of environ from LL env
+ * @history: history node
+ * @alias: alias node
+ * @env_changed: on if environ was changed
+ * @status: the return status of the last executed command
+ * @cmd_buf: address of pointer to cmd_buf
+ * @cmd_buf_type: CMD_type ||, &&, ;
+ * @readfd: the fd from which to read line input
+ * @arg: string gotten from getline having arguements
+ */
+
+#define INFO_INIT \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+		0, 0, 0}
+
 /**
  * struct builtin - contains a builtin string and related function
  * @type: the builtin command flag
