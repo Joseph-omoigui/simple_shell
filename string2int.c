@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * responsive - returns true if in a responsive mode
  * @info: struct address
@@ -10,7 +9,6 @@ int responsive(info_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
-
 /**
  * demlimitter - checks if character is a delimeter
  * @delimmitter: the delimeter string
@@ -24,13 +22,11 @@ int delimitter(char f, char *delimitter)
 			return (1);
 	return (0);
 }
-
 /**
  * _isalpha - checks for alphabetic character
  * @f: The character to input
  * Return: 1 if c is alphabetic, 0 otherwise
  */
-
 int alpha1(int f)
 {
 	if ((f >= 'a' && f <= 'z') || (f >= 'A' && f <= 'Z'))
@@ -38,7 +34,6 @@ int alpha1(int f)
 	else
 		return (0);
 }
-
 /**
  * string2int - will convert any string to an int
  * @g: the string to be converted
