@@ -77,7 +77,7 @@ typedef struct passinfo
 /**
  * struct passinfo - contains arguements to pass into a function,
  * maintaining identical prototype for function pointer struct
- * 
+ *
  * @histcount: the history line number count
  * @argv:an array of strings gotten from arg
  * @path: a string path for the current command
