@@ -1,5 +1,4 @@
 #include "shell.h"
-
 /**
  * _myenv - prints the current environment
  * @info: Structure containing potential arguments. Used to maintain
@@ -65,7 +64,7 @@ int _myunsetenv(info_t *info)
 
 	if (info->argc == 1)
 	{
-		_eputs("Too few arguements.\n");
+		_puts("Too few arguements.\n");
 		return (1);
 	}
 	for (i = 1; i <= info->argc; i++)
